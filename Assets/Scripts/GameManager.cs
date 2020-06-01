@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
+    public int score;
     public GameObject player;
 
     private void Awake()
@@ -13,20 +13,11 @@ public class GameManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         } else
         {
             Destroy(this.gameObject);
+            Debug.LogError("[GameManager] Attempted to create a second Game Manager: " + this.gameObject.name);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
