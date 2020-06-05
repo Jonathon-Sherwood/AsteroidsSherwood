@@ -11,11 +11,12 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Links this object to GameManager
         GameManager.instance.player = this.gameObject;
         tf = gameObject.GetComponent<Transform>();
     }
 
-    // Update is called once per frame
+    // Update is called once per frame.
     void Update()
     {
         Movement();
@@ -24,17 +25,17 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
-        //Rotate player to the left
+        //Rotate player to the left.
         if (Input.GetKey(KeyCode.LeftArrow))
             {
             tf.Rotate(0, 0, turnSpeed * Time.deltaTime);
             }
-        //Rotate player to the right
+        //Rotate player to the right.
         if (Input.GetKey(KeyCode.RightArrow))
         {
             tf.Rotate(0, 0, -turnSpeed * Time.deltaTime);
         }
-        //Move player forward
+        //Move player forward relative to direction facing.
         if (Input.GetKey(KeyCode.UpArrow))
         {
             tf.position += tf.right * moveSpeed * Time.deltaTime;
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
+        //Allows the player to shoot.
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //TODO: Implement shooting

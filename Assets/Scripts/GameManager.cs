@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        //Sets this GameManger to a Singleton.
         if(instance == null)
         {
             instance = this;
