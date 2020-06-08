@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int score;
     public GameObject player;
-
+    
     private void Awake()
     {
         //Sets this GameManger to a Singleton.

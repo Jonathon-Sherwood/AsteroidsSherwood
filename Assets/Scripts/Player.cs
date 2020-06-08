@@ -27,9 +27,9 @@ public class Player : MonoBehaviour
     {
         //Rotate player to the left.
         if (Input.GetKey(KeyCode.LeftArrow))
-            {
+        {
             tf.Rotate(0, 0, turnSpeed * Time.deltaTime);
-            }
+        }
         //Rotate player to the right.
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -50,5 +50,20 @@ public class Player : MonoBehaviour
             //TODO: Implement shooting
             Debug.Log("Shooting Not Implemented Yet");
         }
+    }
+
+    void Die()
+    {
+        Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D otherObject)
+    {
+        Die();
+    }
+
+    private void OnDestroy()
+    {
+        
     }
 }
