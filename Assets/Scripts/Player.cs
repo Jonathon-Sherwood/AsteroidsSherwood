@@ -7,6 +7,11 @@ public class Player : MonoBehaviour
     private Transform tf;
     public float turnSpeed = 1f; //Degrees per second.
     public float moveSpeed = 5; //World Space Units per second.
+    public float bulletSpeed = 6f;
+
+    public float destroyTime = 2f; //Adjustable variable for designers to decide how long objects last before being destroyed.
+
+    public GameObject bulletPrefab; //Assignable prefab for bullets to be fired by Shoot().
 
     // Start is called before the first frame update
     void Start()
@@ -47,8 +52,9 @@ public class Player : MonoBehaviour
         //Allows the player to shoot.
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //TODO: Implement shooting
-            Debug.Log("Shooting Not Implemented Yet");
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            bullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
+            Destroy(bullet, destroyTime);
         }
     }
 
@@ -61,6 +67,8 @@ public class Player : MonoBehaviour
     {
         Die();
     }
+
+   
 
     private void OnDestroy()
     {
