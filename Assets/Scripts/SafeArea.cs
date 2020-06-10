@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SafeArea : MonoBehaviour
 {
+    //Destroys any Gameobject that leaves the play area that spans the screen.
     private void OnTriggerExit2D(Collider2D otherObject)
     {
         Destroy(otherObject.gameObject);
-        print(otherObject.name + " destroyed!");
+        print(otherObject.name + " destroyed for leaving SafeArea!"); //Used for verifying destruction during fullscreen testing.
     }
 }

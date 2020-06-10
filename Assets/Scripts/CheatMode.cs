@@ -6,7 +6,7 @@ public class CheatMode : MonoBehaviour
 {
     void Update()
     {
-        //Adds consistent score to Gamemanager to test for linked components.
+        //Adds consistent score to Game Manager to test for linked components.
         GameManager.instance.score++;
     }
 }

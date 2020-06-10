@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-    public int score;
-    public GameObject player;
-    public List<GameObject> enemyList;
+    public static GameManager instance; //Allows any script to call the Game Manager.
+    public int score; //Placeholder int to be tweaked by other objects such as asteroids.
+    public GameObject player; //Allows the designer to assign the player object in inspector.
+    public List<GameObject> enemyList; //This list is attached to asteroid objects that will fill this list.
     
     private void Awake()
     {

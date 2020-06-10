@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Transform tf;
+    private Transform tf; //Allows for shorthand throughout code.
     public float turnSpeed = 1f; //Degrees per second.
     public float moveSpeed = 5; //World Space Units per second.
-    public float bulletSpeed = 6f;
+    public float bulletSpeed = 6f; //Adjustable variable for designers to change bullet speed. Highly Recommended to be above player speed.
 
     public float destroyTime = 2f; //Adjustable variable for designers to decide how long objects last before being destroyed.
 
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
-        //Allows the player to shoot.
+        //Allows the player to shoot by creating a prefab Bullet with an attached script.
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
@@ -58,20 +58,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    //Used for whenever the Player needs to be destroyed after loss in game.
     void Die()
     {
         Destroy(this.gameObject);
     }
 
+    //Whenever the player collides with any object designated by the layer matrix the player dies.
     private void OnCollisionEnter2D(Collision2D otherObject)
     {
         Die();
-    }
-
-   
-
-    private void OnDestroy()
-    {
-        
     }
 }
