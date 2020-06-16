@@ -14,12 +14,16 @@ public class Player : MonoBehaviour
 
     private Animator anim;
 
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         //Links this object to GameManager
         GameManager.instance.player = this.gameObject;
         tf = gameObject.GetComponent<Transform>();
+
+        audioSource = GetComponent<AudioSource>(); //Sets the audiosource containing Cannon Fire to a variable.
 
         anim = GetComponent<Animator>();  //Sets variable to this script's animator.
     }
@@ -47,10 +51,10 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             tf.position += tf.up * moveSpeed * Time.deltaTime;
-            anim.SetBool("Moving", true);
+            anim.SetBool("Moving", true); //Activates the animator's movement animation.
         } else
         {
-            anim.SetBool("Moving", false);
+            anim.SetBool("Moving", false); //Deactivates the animator's movement animation.
         }
     }
 
@@ -62,6 +66,8 @@ public class Player : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             bullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
             Destroy(bullet, destroyTime);
+
+            audioSource.Play(); //Plays the attached cannonfire audio on the player.
         }
     }
 
