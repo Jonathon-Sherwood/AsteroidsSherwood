@@ -8,10 +8,11 @@ public class Player : MonoBehaviour
     public float turnSpeed = 1f; //Degrees per second.
     public float moveSpeed = 5; //World Space Units per second.
     public float bulletSpeed = 6f; //Adjustable variable for designers to change bullet speed. Highly Recommended to be above player speed.
-
     public float destroyTime = 2f; //Adjustable variable for designers to decide how long objects last before being destroyed.
 
     public GameObject bulletPrefab; //Assignable prefab for bullets to be fired by Shoot().
+
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
         //Links this object to GameManager
         GameManager.instance.player = this.gameObject;
         tf = gameObject.GetComponent<Transform>();
+
+        anim = GetComponent<Animator>();  //Sets variable to this script's animator.
     }
 
     // Update is called once per frame.
@@ -43,7 +46,11 @@ public class Player : MonoBehaviour
         //Move player forward relative to direction facing.
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            tf.position += tf.right * moveSpeed * Time.deltaTime;
+            tf.position += tf.up * moveSpeed * Time.deltaTime;
+            anim.SetBool("Moving", true);
+        } else
+        {
+            anim.SetBool("Moving", false);
         }
     }
 
