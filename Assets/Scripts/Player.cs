@@ -67,13 +67,14 @@ public class Player : MonoBehaviour
             bullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
             Destroy(bullet, destroyTime);
 
-            audioSource.Play(); //Plays the attached cannonfire audio on the player.
+            AudioManager.instance.Play("Cannon Fire");
         }
     }
 
     //Used for whenever the Player needs to be destroyed after loss in game.
     void Die()
     {
+        AudioManager.instance.Play("Explosion");
         Destroy(this.gameObject);
     }
 
@@ -81,6 +82,5 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D otherObject)
     {
         Die();
-        Destroy(otherObject.gameObject);
     }
 }

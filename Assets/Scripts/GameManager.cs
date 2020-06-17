@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        AudioManager.instance.Play("Music");
+    }
+
     void SpawnEnemy()
     {
 

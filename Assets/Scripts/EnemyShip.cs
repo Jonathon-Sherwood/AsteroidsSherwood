@@ -32,4 +32,15 @@ public class EnemyShip : MonoBehaviour
         //TODO: Learn RotateTowards
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(transform.right, transform.forward), rotationSpeed * Time.deltaTime);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Drops a treasure chest for the player to pick up on destruction only if shot.
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            //Instantiate(treasureChestPrefab, transform.position, Quaternion.identity);
+            AudioManager.instance.Play("Explosion");
+            Destroy(this.gameObject);
+        }
+    }
 }
