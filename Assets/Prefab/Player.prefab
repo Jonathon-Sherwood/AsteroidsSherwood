@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 972497910373687018}
   - component: {fileID: 972497910373687015}
-  - component: {fileID: 972497910373687013}
   - component: {fileID: 972497910373687012}
   - component: {fileID: 972497910373687014}
   - component: {fileID: 972497910373687009}
@@ -86,18 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &972497910373687013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972497910373687019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca244fb733df77439933fcfb7ba48df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &972497910373687012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 200
   moveSpeed: 20
-  bulletSpeed: 50
+  bulletSpeed: 40
   destroyTime: 2
   bulletPrefab: {fileID: 1037420429210093519, guid: 51842f0a607f5d84b830222ac6b463ac,
     type: 3}
