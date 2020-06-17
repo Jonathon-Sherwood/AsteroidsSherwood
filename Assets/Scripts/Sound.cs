@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class Sound
 {
-    public AudioClip clip; //Allows a designer to assign audio clips to the manager.
+    public AudioClip clip; //Allows the designer to attach audio clips to the game manager.
 
-    public string name; //Allows scripts to call clips based on name.
+    public string name; //Allows the designer to name the clip that will be called in program.
 
 
-    //Sets the parameters for the audio clips.
+    //Creates adjustable variables for the audio clips.
     [Range(0f,1f)]
-    public float volume;
+    public float volume = 1f;
     [Range(.1f,3f)]
-    public float pitch;
+    public float pitch = 1f;
     [Range(0f, 5f)]
     public float time;
 

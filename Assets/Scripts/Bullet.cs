@@ -17,7 +17,6 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(this.gameObject);
-        Destroy(collision.gameObject);
     }
 
     //Triggers are used to check for the treasure chest.

@@ -6,6 +6,7 @@ public class TreasureChest : MonoBehaviour
 {
     public GameObject pointsPrefab; //Sets the animated points as a variable to be instantiated.
     private bool playerTouch; //Used to cancel the explosion sound and animation if player collected.
+    public int scoreValue = 500; //Allows the designer to assign how many points this is worth.
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,7 +17,8 @@ public class TreasureChest : MonoBehaviour
             if (collision.gameObject.CompareTag("Player"))
             {
                 Instantiate(pointsPrefab, transform.position, Quaternion.identity);
-                GameManager.instance.score += 500;
+                GameManager.instance.score += scoreValue;
+                AudioManager.instance.Play("Collect");
                 playerTouch = true;
             }
             Destroy(this.gameObject);
