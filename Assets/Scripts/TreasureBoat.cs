@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+public class TreasureBoat : MonoBehaviour
 {
     private Vector3 directionToMove; //Hard-Coded vector assigned to the player through the game manager.
 
-    public float asteroidSpeed = 1f; //Adjustable variable for designers to change asteroid flight speed.
+    public float treasureBoatSpeed = 1f; //Adjustable variable for designers to change asteroid flight speed.
 
     private void Start()
     {
@@ -17,18 +17,22 @@ public class Asteroid : MonoBehaviour
         directionToMove = GameManager.instance.player.transform.position - transform.position;
 
         //Maintains the current Vector3 but changes its length to 1.0.
-        directionToMove.Normalize(); 
-    }
+        directionToMove.Normalize();
 
-    private void OnDestroy()
-    {
-        //Removes this gameobject to the Game Manager's list of existing Asteroids on destruction.
-        GameManager.instance.enemyList.Remove(this.gameObject);
+        //Spawns the ships facing the direction they are moving.
+        transform.up = directionToMove;
     }
 
     private void Update()
     {
         //Moves the asteroids towards the player.
-        transform.position += directionToMove * asteroidSpeed * Time.deltaTime;
+        transform.position += directionToMove * treasureBoatSpeed * Time.deltaTime;
+    }
+
+
+    private void OnDestroy()
+    {
+        //Removes this gameobject to the Game Manager's list of existing Asteroids on destruction.
+        GameManager.instance.enemyList.Remove(this.gameObject);
     }
 }

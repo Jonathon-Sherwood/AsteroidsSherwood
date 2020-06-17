@@ -27,7 +27,7 @@ public class EnemyShip : MonoBehaviour
 
         targetPosition = GameManager.instance.player.transform.position; //Sets the Game Manager's Player instance to a Vector3
         Vector3 directionToLook = targetPosition - transform.position;   //Creates a variable for a vector between the player and position.
-        transform.right = directionToLook;                              //Moves the red axis towards the player, which is rotation only.
+        transform.up = directionToLook;                              //Moves the red axis towards the player, which is rotation only.
 
         //TODO: Learn RotateTowards
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(transform.right, transform.forward), rotationSpeed * Time.deltaTime);

@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         //TODO: Not yet fully implemented.
 
         //Assigns the Spawn Point to any random spawnpoint assigned in the inspector.
-       Transform spawnPoint = spawnPointList[Random.Range(0, spawnPointList.Count)];
+        Transform spawnPoint = spawnPointList[Random.Range(0, spawnPointList.Count)];
 
         //Picks a point within distance of spawn point to spawn at.
         Vector3 randomVector = Random.insideUnitCircle;
