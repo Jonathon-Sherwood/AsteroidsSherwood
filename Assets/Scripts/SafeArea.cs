@@ -8,6 +8,5 @@ public class SafeArea : MonoBehaviour
     private void OnTriggerExit2D(Collider2D otherObject)
     {
         Destroy(otherObject.gameObject);
-        print(otherObject.name + " destroyed for leaving SafeArea!"); //Used for verifying destruction during fullscreen testing.
     }
 }

@@ -77,9 +77,10 @@ public class Player : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    //Whenever the player collides with any object designated by the layer matrix the player dies.
+    //Whenever the player collides with any object designated by the layer matrix the player and object are destroyed.
     private void OnCollisionEnter2D(Collision2D otherObject)
     {
         Die();
+        Destroy(otherObject.gameObject);
     }
 }

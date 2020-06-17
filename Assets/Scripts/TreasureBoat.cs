@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TreasureBoat : MonoBehaviour
 {
+    public GameObject treasureChestPrefab; //Attaches the treasure chest pickup to the boat for instantiating.
+
     private Vector3 directionToMove; //Hard-Coded vector assigned to the player through the game manager.
 
     public float treasureBoatSpeed = 1f; //Adjustable variable for designers to change asteroid flight speed.
@@ -32,6 +34,9 @@ public class TreasureBoat : MonoBehaviour
 
     private void OnDestroy()
     {
+        //Drops a treasure chest for the player to pick up.
+        Instantiate(treasureChestPrefab, transform.position, Quaternion.identity);
+
         //Removes this gameobject to the Game Manager's list of existing Asteroids on destruction.
         GameManager.instance.enemyList.Remove(this.gameObject);
     }
