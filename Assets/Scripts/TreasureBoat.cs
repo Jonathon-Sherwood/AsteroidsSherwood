@@ -31,12 +31,17 @@ public class TreasureBoat : MonoBehaviour
         transform.position += directionToMove * treasureBoatSpeed * Time.deltaTime;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Drops a treasure chest for the player to pick up on destruction only if shot.
+        if(collision.gameObject.CompareTag("Bullet"))
+        Instantiate(treasureChestPrefab, transform.position, Quaternion.identity);
+
+        Destroy(this.gameObject);
+    }
 
     private void OnDestroy()
     {
-        //Drops a treasure chest for the player to pick up.
-        Instantiate(treasureChestPrefab, transform.position, Quaternion.identity);
-
         //Removes this gameobject to the Game Manager's list of existing Asteroids on destruction.
         GameManager.instance.enemyList.Remove(this.gameObject);
     }
