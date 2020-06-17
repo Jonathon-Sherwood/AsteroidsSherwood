@@ -8,5 +8,9 @@ public class SafeArea : MonoBehaviour
     private void OnTriggerExit2D(Collider2D otherObject)
     {
         Destroy(otherObject.gameObject);
+
+        if (otherObject.gameObject.CompareTag("Player"))
+            AudioManager.instance.Play("Explosion");
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> enemyList; //This list is attached to asteroid objects that will fill this list.
     public List<GameObject> enemyPrefabList; //Allows the designer to fill in which enemies will be spawned in the inspector.
     public List<Transform> spawnPointList; //This is a list attached to specified spawn points to fill with Asteroids.
+    public Text scoreTracker; //Sets a canvas's text object to a variable that can be changed by the script.
 
     
     private void Awake()
@@ -44,9 +46,10 @@ public class GameManager : MonoBehaviour
         //Picks a point within distance of spawn point to spawn at.
         Vector3 randomVector = Random.insideUnitCircle;
         Vector3 newPosition = spawnPoint.position + (randomVector * spawnDistance);
+    }
 
-
-
-
+    private void Update()
+    {
+        scoreTracker.text = score.ToString(); //Sets the canvas text element to the player's score.
     }
 }

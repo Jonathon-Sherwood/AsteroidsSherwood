@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     public GameObject bulletPrefab; //Assignable prefab for bullets to be fired by Shoot().
 
-    private Animator anim;
+    private Animator anim; //Assigns the variable to this object's animator.
 
     AudioSource audioSource;
 

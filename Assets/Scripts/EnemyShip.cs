@@ -8,6 +8,7 @@ public class EnemyShip : MonoBehaviour
     public float rotationSpeed = 5f; //Allows the designer to adjust rotation speed in the inspector.
     private int health = 2; //Requires the enemyship to be shot twice before destruction. Private to ensure only 2 health.
     public int scoreValue = 1000; //Allows the designer to change how many points destroying this is worth.
+    public GameObject pointsPrefab;
 
     // Update is called once per frame
     void Update()
@@ -34,12 +35,12 @@ public class EnemyShip : MonoBehaviour
         //Only deals damage to this if collision is with bullet.
         if (collision.gameObject.CompareTag("Bullet") && health == 2)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
+            gameObject.GetComponent<SpriteRenderer>().color = Color.grey; //Darkens the ship to indicate damage.
             AudioManager.instance.Play("Explosion");
             health--;
-        } else if (collision.gameObject.CompareTag("Bullet") && health == 1) //Destroys ship only if down to one health and adds score.
+        } else if (collision.gameObject.CompareTag("Bullet") && health == 1) //Destroys ship only if down to one health.
         {
-            //Instantiate(treasureChestPrefab, transform.position, Quaternion.identity);
+            Instantiate(pointsPrefab, transform.position, Quaternion.identity); //Creates the visual, audio, and score of +1000 score on death.
             GameManager.instance.score += scoreValue;
             AudioManager.instance.Play("Explosion");
             AudioManager.instance.Play("Collect");
