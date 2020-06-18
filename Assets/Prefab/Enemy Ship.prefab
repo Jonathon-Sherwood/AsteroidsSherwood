@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 0
+  movementSpeed: 5
   scoreValue: 1000
   pointsPrefab: {fileID: 4181371976206966428, guid: d394b223035419a4fb1e5b337c9b64a1,
     type: 3}

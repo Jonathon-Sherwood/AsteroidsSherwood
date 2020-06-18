@@ -38,17 +38,17 @@ public class Player : MonoBehaviour
     void Movement()
     {
         //Rotate player to the left.
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             tf.Rotate(0, 0, turnSpeed * Time.deltaTime);
         }
         //Rotate player to the right.
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             tf.Rotate(0, 0, -turnSpeed * Time.deltaTime);
         }
         //Move player forward relative to direction facing.
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             tf.position += tf.up * moveSpeed * Time.deltaTime;
             anim.SetBool("Moving", true); //Activates the animator's movement animation.

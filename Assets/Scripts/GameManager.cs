@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance; //Allows any script to call the Game Manager.
-    public int score; //Placeholder int to be tweaked by other objects such as asteroids.
+    public int score; //Placeholder int to be tweaked by other objects such as ships.
     public float spawnDistance; //Allows the designer to set a random distance from the spawner.
     public GameObject player; //Allows the designer to assign the player object in inspector.
-    public List<GameObject> enemyList; //This list is attached to asteroid objects that will fill this list.
+    public List<GameObject> enemyList; //This list is attached to ship objects that will fill this list.
     public List<GameObject> enemyPrefabList; //Allows the designer to fill in which enemies will be spawned in the inspector.
-    public List<Transform> spawnPointList; //This is a list attached to specified spawn points to fill with Asteroids.
+    public List<Transform> spawnPointList; //This is a list attached to specified spawn points to fill with ships.
     public Text scoreTracker; //Sets a canvas's text object to a variable that can be changed by the script.
 
     

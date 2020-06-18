@@ -27,7 +27,7 @@ public class TreasureBoat : MonoBehaviour
 
     private void Update()
     {
-        //Moves the asteroids towards the player.
+        //Moves the ships towards the player.
         transform.position += directionToMove * treasureBoatSpeed * Time.deltaTime;
     }
 

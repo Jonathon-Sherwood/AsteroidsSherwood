@@ -1979,6 +1979,11 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 972497910373687012, guid: 394162e2b458e3d4abd55b99163532ba,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 972497910373687018, guid: 394162e2b458e3d4abd55b99163532ba,
         type: 3}
       propertyPath: m_LocalPosition.x

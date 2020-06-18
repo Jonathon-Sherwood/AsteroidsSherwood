@@ -6,9 +6,10 @@ public class EnemyShip : MonoBehaviour
 {
     private Vector3 targetPosition; //Sets the Game Manager's Player instance to a Vector3
     public float rotationSpeed = 5f; //Allows the designer to adjust rotation speed in the inspector.
+    public float movementSpeed = 10f; //Allows the designer to adjust movement speed in the inspector.
     private int health = 2; //Requires the enemyship to be shot twice before destruction. Private to ensure only 2 health.
     public int scoreValue = 1000; //Allows the designer to change how many points destroying this is worth.
-    public GameObject pointsPrefab;
+    public GameObject pointsPrefab; //Allows the deisgner to attached a visual cue for earning points.
 
     // Update is called once per frame
     void Update()
@@ -22,9 +23,10 @@ public class EnemyShip : MonoBehaviour
         if(GameManager.instance.player == null)
             return;
 
-        targetPosition = GameManager.instance.player.transform.position; //Sets the Game Manager's Player instance to a Vector3
-        Vector3 directionToLook = targetPosition - transform.position;   //Creates a variable for a vector between the player and position.
-        transform.up = directionToLook;                                  //Moves the red axis towards the player, which is rotation only.
+        targetPosition = GameManager.instance.player.transform.position;                         //Sets the Game Manager's Player instance to a Vector3
+        Vector3 directionToLook = targetPosition - transform.position;                          //Creates a variable for a vector between the player and position.
+        transform.up = directionToLook;                                                         //Moves the red axis towards the player, which is rotation only.
+        transform.position += directionToLook.normalized * movementSpeed * Time.deltaTime;      //Moves the ship towards the player.
 
         //TODO: Learn RotateTowards
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(transform.right, transform.forward), rotationSpeed * Time.deltaTime);
