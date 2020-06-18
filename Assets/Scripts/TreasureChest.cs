@@ -26,7 +26,12 @@ public class TreasureChest : MonoBehaviour
             //Stops audio and animation of explosion if player collects first.
             if (playerTouch == false)
             {
-                AudioManager.instance.Play("Enemy Collect");
+                AudioManager.instance.Play("Enemy Collect");  //Alerts the player that a ship hit the treasure first.
+
+                if (collision.gameObject.CompareTag("Bullet")) //Adds an explosion sound to the loss if the player hits this with a bullet.
+                {
+                    AudioManager.instance.Play("Explosion");
+                }
             }
         }
     }
