@@ -355,6 +355,14 @@ MonoBehaviour:
     loop: 0
     mute: 0
     source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 6bf403445d8266347ad7be463637bce2, type: 3}
+    name: Enemy Collect
+    volume: 1
+    pitch: 1
+    time: 0
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
 --- !u!4 &296884780
 Transform:
   m_ObjectHideFlags: 0
@@ -389,12 +397,12 @@ PrefabInstance:
     - target: {fileID: 8989411926584330668, guid: 5941c07b1a537db4386468499ff53a28,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.74
+      value: -23.15
       objectReference: {fileID: 0}
     - target: {fileID: 8989411926584330668, guid: 5941c07b1a537db4386468499ff53a28,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.15
+      value: -9.76
       objectReference: {fileID: 0}
     - target: {fileID: 8989411926584330668, guid: 5941c07b1a537db4386468499ff53a28,
         type: 3}
@@ -1798,7 +1806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.62352943}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6862745}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1983,8 +1991,19 @@ PrefabInstance:
     - target: {fileID: 972497910373687012, guid: 394162e2b458e3d4abd55b99163532ba,
         type: 3}
       propertyPath: moveSpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 972497910373687012, guid: 394162e2b458e3d4abd55b99163532ba,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 972497910373687012, guid: 394162e2b458e3d4abd55b99163532ba,
+        type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 5974005629052003067, guid: 8e5f499fb90a0234ab72036ad35d0ecb,
+        type: 3}
     - target: {fileID: 972497910373687018, guid: 394162e2b458e3d4abd55b99163532ba,
         type: 3}
       propertyPath: m_LocalPosition.x

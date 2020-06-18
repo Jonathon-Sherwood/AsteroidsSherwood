@@ -7,7 +7,7 @@ public class TreasureBoat : MonoBehaviour
     public GameObject treasureChestPrefab; //Attaches the treasure chest pickup to the boat for instantiating.
 
     private Vector3 directionToMove; //Hard-Coded vector assigned to the player through the game manager.
-
+    public GameObject explosionPrefab; //This is used to call the prefab that holds an explosion animation.
     public float treasureBoatMaxSpeed = 3f; //Adjustable variable for designers to change ship maximum speed.
     public float treasureBoatMinSpeed = 1f; //Adjustable variable for designers to change ship minimum speed.
     private float treasureBoatSpeed; //Variable to be chosen randomly between min and max speed.
@@ -42,6 +42,7 @@ public class TreasureBoat : MonoBehaviour
         {
             Instantiate(treasureChestPrefab, transform.position, Quaternion.identity);
         }
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         AudioManager.instance.Play("Explosion");
         Destroy(this.gameObject);
     }

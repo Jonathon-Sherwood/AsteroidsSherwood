@@ -26,7 +26,7 @@ public class TreasureChest : MonoBehaviour
             //Stops audio and animation of explosion if player collects first.
             if (playerTouch == false)
             {
-                AudioManager.instance.Play("Explosion");
+                AudioManager.instance.Play("Enemy Collect");
             }
         }
     }

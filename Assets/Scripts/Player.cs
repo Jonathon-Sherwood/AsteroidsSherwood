@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Transform tf; //Allows for shorthand throughout code.
+    public GameObject explosionPrefab; //This is used to call the prefab that holds an explosion animation.
     public float turnSpeed = 1f; //Degrees per second.
     public float moveSpeed = 5; //World Space Units per second.
     public float bulletSpeed = 6f; //Adjustable variable for designers to change bullet speed. Highly Recommended to be above player speed.
@@ -76,6 +77,7 @@ public class Player : MonoBehaviour
     {
         AudioManager.instance.Play("Player Death");
         Destroy(GameObject.Find("Music(Clone)"));    //Finds and destroys music object to mute after death.
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity); //Creates the explosion animation.
         Destroy(this.gameObject);
     }
 

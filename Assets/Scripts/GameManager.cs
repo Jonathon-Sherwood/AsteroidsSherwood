@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -58,5 +59,10 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         scoreTracker.text = score.ToString(); //Sets the canvas text element to the player's score.
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
