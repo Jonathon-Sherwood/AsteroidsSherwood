@@ -8,7 +8,9 @@ public class TreasureBoat : MonoBehaviour
 
     private Vector3 directionToMove; //Hard-Coded vector assigned to the player through the game manager.
 
-    public float treasureBoatSpeed = 1f; //Adjustable variable for designers to change asteroid flight speed.
+    public float treasureBoatMaxSpeed = 3f; //Adjustable variable for designers to change ship maximum speed.
+    public float treasureBoatMinSpeed = 1f; //Adjustable variable for designers to change ship minimum speed.
+    private float treasureBoatSpeed; //Variable to be chosen randomly between min and max speed.
 
     private void Start()
     {
@@ -23,6 +25,8 @@ public class TreasureBoat : MonoBehaviour
 
         //Spawns the ships facing the direction they are moving.
         transform.up = directionToMove;
+
+        treasureBoatSpeed = Random.Range(treasureBoatMinSpeed, treasureBoatMaxSpeed);
     }
 
     private void Update()

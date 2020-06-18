@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6138746501973960285}
   - component: {fileID: 1638742517779429001}
-  - component: {fileID: 298938110013992193}
   - component: {fileID: 829126449}
+  - component: {fileID: 298938110013992193}
   - component: {fileID: 2037832217293510341}
   m_Layer: 0
   m_Name: Enemy Ship
@@ -83,6 +83,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &829126449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957849711333629161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607282ba2277bd44ebe62c095d97ac11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 0
+  maxSpeed: 7
+  minSpeed: 3
+  scoreValue: 1000
+  pointsPrefab: {fileID: 4181371976206966428, guid: d394b223035419a4fb1e5b337c9b64a1,
+    type: 3}
 --- !u!95 &298938110013992193
 Animator:
   serializedVersion: 3
@@ -102,23 +120,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &829126449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3957849711333629161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 607282ba2277bd44ebe62c095d97ac11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 0
-  movementSpeed: 5
-  scoreValue: 1000
-  pointsPrefab: {fileID: 4181371976206966428, guid: d394b223035419a4fb1e5b337c9b64a1,
-    type: 3}
 --- !u!61 &2037832217293510341
 BoxCollider2D:
   m_ObjectHideFlags: 0

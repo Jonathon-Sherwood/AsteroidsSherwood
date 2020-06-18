@@ -6,10 +6,18 @@ public class EnemyShip : MonoBehaviour
 {
     private Vector3 targetPosition; //Sets the Game Manager's Player instance to a Vector3
     public float rotationSpeed = 5f; //Allows the designer to adjust rotation speed in the inspector.
-    public float movementSpeed = 10f; //Allows the designer to adjust movement speed in the inspector.
+    public float maxSpeed = 3f; //Adjustable variable for designers to change ship maximum speed.
+    public float minSpeed = 1f; //Adjustable variable for designers to change ship minimum speed.
+    private float movementSpeed; //Variable to be chosen randomly between min and max speed.
+    private float treasureBoatSpeed; //Variable to be chosen randomly between min and max speed.
     private int health = 2; //Requires the enemyship to be shot twice before destruction. Private to ensure only 2 health.
     public int scoreValue = 1000; //Allows the designer to change how many points destroying this is worth.
     public GameObject pointsPrefab; //Allows the deisgner to attached a visual cue for earning points.
+
+    private void Start()
+    {
+        movementSpeed = Random.Range(minSpeed, maxSpeed);
+    }
 
     // Update is called once per frame
     void Update()

@@ -98,7 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treasureChestPrefab: {fileID: 5391694796822002775, guid: 5558ad3e45fc6c345b007c192e1cec66,
     type: 3}
-  treasureBoatSpeed: 1
+  treasureBoatMaxSpeed: 5
+  treasureBoatMinSpeed: 1
 --- !u!58 &8989411926584330659
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -74,8 +74,8 @@ public class Player : MonoBehaviour
     //Used for whenever the Player needs to be destroyed after loss in game.
     void Die()
     {
-        AudioManager.instance.Play("Explosion");
-        Destroy(GameObject.Find("Music(Clone)"));
+        AudioManager.instance.Play("Player Death");
+        Destroy(GameObject.Find("Music(Clone)"));    //Finds and destroys music object to mute after death.
         Destroy(this.gameObject);
     }
 
