@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int score; //Placeholder int to be tweaked by other objects such as ships.
     public float spawnDistance; //Allows the designer to set a random distance from the spawner.
     public GameObject player; //Allows the designer to assign the player object in inspector.
+    public GameObject music; //Allows the designer to attach a music gameobject to this.
     public List<GameObject> enemyList; //This list is attached to ship objects that will fill this list.
     public List<GameObject> enemyPrefabList; //Allows the designer to fill in which enemies will be spawned in the inspector.
     public List<Transform> spawnPointList; //This is a list attached to specified spawn points to fill with ships.
@@ -32,7 +33,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.Play("Music");
+        PlayMusic();
+    }
+
+    //Creates a destroyable gameobject with music attached.
+    void PlayMusic()
+    {
+        Instantiate(music);
     }
 
     void SpawnEnemy()

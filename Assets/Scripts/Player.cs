@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
     void Die()
     {
         AudioManager.instance.Play("Explosion");
+        Destroy(GameObject.Find("Music(Clone)"));
         Destroy(this.gameObject);
     }
 

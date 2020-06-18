@@ -339,7 +339,7 @@ MonoBehaviour:
     loop: 0
     mute: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: cd434f7064ad6204f83e8dc7b73b7627, type: 3}
+  - clip: {fileID: 0}
     name: Music
     volume: 1
     pitch: 1
@@ -1729,6 +1729,7 @@ MonoBehaviour:
   score: 0
   spawnDistance: 0
   player: {fileID: 0}
+  music: {fileID: 1173461146456195229, guid: e55c911be357bb1498a3bc13225d546c, type: 3}
   enemyList: []
   enemyPrefabList:
   - {fileID: 8989411926584330656, guid: 5941c07b1a537db4386468499ff53a28, type: 3}
