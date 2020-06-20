@@ -78,7 +78,6 @@ public class Player : MonoBehaviour
         Destroy(GameObject.Find("Music(Clone)"));    //Finds and destroys music object to mute after death.
         Instantiate(explosionPrefab, transform.position, Quaternion.identity); //Creates the explosion animation.
         GameManager.instance.DestroyAllEnemies();
-        --GameManager.instance.lives;
         GameManager.instance.timer = 0;  //Restarts timer when player dies for respawn.
         Destroy(this.gameObject);
     }

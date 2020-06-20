@@ -86,10 +86,14 @@ public class GameManager : MonoBehaviour
     {
         if (player == null)
         {
-            if (lives >= 0)
+            if (lives >= 1)
             {
+                lives--;
                 Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
                 PlayMusic();
+            } else if(lives <= 0)
+            {
+                EndGame();
             }
         }
     }
@@ -97,10 +101,8 @@ public class GameManager : MonoBehaviour
     //Once the player runs out of lives, the game ends.
     private void EndGame()
     {
-        if(lives <= 0)
-        {
-            Application.Quit();
-        }
+        print("Quit");
+        Application.Quit();
     }
 
     //Clears the scene on player death.
