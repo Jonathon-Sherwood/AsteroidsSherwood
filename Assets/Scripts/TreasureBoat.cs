@@ -26,6 +26,7 @@ public class TreasureBoat : MonoBehaviour
         //Spawns the ships facing the direction they are moving.
         transform.up = directionToMove;
 
+        //Spawns ships with random speeds.
         treasureBoatSpeed = Random.Range(treasureBoatMinSpeed, treasureBoatMaxSpeed);
     }
 

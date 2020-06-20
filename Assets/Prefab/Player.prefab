@@ -101,7 +101,7 @@ MonoBehaviour:
   turnSpeed: 200
   moveSpeed: 20
   bulletSpeed: 40
-  destroyTime: 2
+  destroyTime: 3
   bulletPrefab: {fileID: 1037420429210093519, guid: 51842f0a607f5d84b830222ac6b463ac,
     type: 3}
 --- !u!50 &972497910373687014

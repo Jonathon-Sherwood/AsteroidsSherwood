@@ -19,7 +19,7 @@ public class EnemyShip : MonoBehaviour
         //Adds this gameobject to the Game Manager's list of existing Asteroids on creation.
         GameManager.instance.enemyList.Add(this.gameObject);
 
-        movementSpeed = Random.Range(minSpeed, maxSpeed);
+        movementSpeed = Random.Range(minSpeed, maxSpeed); //Spawns the ship with a random speed.
     }
 
     // Update is called once per frame
@@ -38,9 +38,6 @@ public class EnemyShip : MonoBehaviour
         Vector3 directionToLook = targetPosition - transform.position;                          //Creates a variable for a vector between the player and position.
         transform.up = directionToLook;                                                         //Moves the red axis towards the player, which is rotation only.
         transform.position += directionToLook.normalized * movementSpeed * Time.deltaTime;      //Moves the ship towards the player.
-
-        //TODO: Learn RotateTowards
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(transform.right, transform.forward), rotationSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
