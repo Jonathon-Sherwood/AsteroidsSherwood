@@ -10,7 +10,10 @@ public class SafeArea : MonoBehaviour
         Destroy(otherObject.gameObject);
 
         if (otherObject.gameObject.CompareTag("Player"))
+        {
             AudioManager.instance.Play("Explosion");
+            GameManager.instance.respawnTime += GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().respawnTime;
+        }
 
     }
 }

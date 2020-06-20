@@ -16,6 +16,9 @@ public class EnemyShip : MonoBehaviour
 
     private void Start()
     {
+        //Adds this gameobject to the Game Manager's list of existing Asteroids on creation.
+        GameManager.instance.enemyList.Add(this.gameObject);
+
         movementSpeed = Random.Range(minSpeed, maxSpeed);
     }
 
@@ -56,5 +59,11 @@ public class EnemyShip : MonoBehaviour
             AudioManager.instance.Play("Collect");
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        //Removes this gameobject to the Game Manager's list of existing Asteroids on destruction.
+        GameManager.instance.enemyList.Remove(this.gameObject);
     }
 }
