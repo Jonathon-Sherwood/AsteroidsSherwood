@@ -12,7 +12,7 @@ public class SafeArea : MonoBehaviour
         if (otherObject.gameObject.CompareTag("Player"))
         {
             AudioManager.instance.Play("Explosion");
-            GameManager.instance.respawnTime += GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().respawnTime;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Die(); //Completes all death related code to player on destruction.
         }
 
     }

@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     public GameObject explosionPrefab; //This is used to call the prefab that holds an explosion animation.
     public float turnSpeed = 1f; //Degrees per second.
     public float moveSpeed = 5; //World Space Units per second.
-    public float respawnTime = 3;
     public float bulletSpeed = 6f; //Adjustable variable for designers to change bullet speed. Highly Recommended to be above player speed.
     public float destroyTime = 2f; //Adjustable variable for designers to decide how long objects last before being destroyed.
 
@@ -68,20 +67,19 @@ public class Player : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             bullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
             Destroy(bullet, destroyTime);
-
             AudioManager.instance.Play("Cannon Fire");
         }
     }
 
     //Used for whenever the Player needs to be destroyed after loss in game.
-    void Die()
+    public void Die()
     {
         AudioManager.instance.Play("Player Death");
         Destroy(GameObject.Find("Music(Clone)"));    //Finds and destroys music object to mute after death.
         Instantiate(explosionPrefab, transform.position, Quaternion.identity); //Creates the explosion animation.
         GameManager.instance.DestroyAllEnemies();
         --GameManager.instance.lives;
-        GameManager.instance.respawnTime = respawnTime + Time.deltaTime;
+        GameManager.instance.timer = 0;  //Restarts timer when player dies for respawn.
         Destroy(this.gameObject);
     }
 

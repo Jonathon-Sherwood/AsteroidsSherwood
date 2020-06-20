@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance; //Allows any script to call the Game Manager.
     public int score; //Placeholder int to be tweaked by other objects such as ships.
-    public int lives = 3;
+    public int lives = 3; //Allows the designer to set a number of respawns the player has before loss.
     public float spawnDistance; //Allows the designer to set a random distance from the spawner.
-    [HideInInspector] public float respawnTime;
+    public float respawnTime; //Allows the designer to set an amount of time before the player respawns.
+    [HideInInspector] public float timer; //Holds the amount of the the game has been playing.
     public GameObject player; //Allows the designer to assign the player object in inspector.
     public GameObject music; //Allows the designer to attach a music gameobject to this.
     public GameObject playerPrefab; //Attaches the player prefab to be respawned on death.
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
         Vector3 randomVector = Random.insideUnitCircle;
         Vector3 newPosition = spawnPoint.position + (randomVector * spawnDistance);
 
+        //Ensures the random location spawned is not off the Z axis/off the game plane.
         Instantiate(enemyToSpawn, new Vector3(newPosition.x, newPosition.y, 0), Quaternion.identity);
     }
 
@@ -60,6 +62,10 @@ public class GameManager : MonoBehaviour
     {
         scoreTracker.text = score.ToString(); //Sets the canvas text element to the player's score.
 
+        //Holds the time as a variable that can be reset on death.
+        timer += Time.deltaTime;
+
+        //Spawns an enemy if there are less than 3.
         if (player != null)
         {
             if (enemyList.Count < 3)
@@ -67,16 +73,15 @@ public class GameManager : MonoBehaviour
                 SpawnEnemy();
             }
         }
-        if (Time.time > respawnTime)
+        
+        //Sets a respawn delay.
+        if (timer > respawnTime)
         {
-            respawnTime = 0;
             SpawnPlayer();
         }
-
-        print(respawnTime);
     }
 
-
+    //Respawns the player after death if they still have lives.
     public void SpawnPlayer()
     {
         if (player == null)
@@ -89,6 +94,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Once the player runs out of lives, the game ends.
+    private void EndGame()
+    {
+        if(lives <= 0)
+        {
+            Application.Quit();
+        }
+    }
+
+    //Clears the scene on player death.
     public void DestroyAllEnemies()
     {
         foreach(GameObject enemy in enemyList)
